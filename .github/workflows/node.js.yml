@@ -26,5 +26,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm install -g firebase-tools
+    - run: curl -sL https://firebase.tools | bash
     - run: firebase deploy --only hosting
