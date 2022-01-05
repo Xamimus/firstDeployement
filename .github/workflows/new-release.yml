@@ -27,8 +27,7 @@ jobs:
       id: write_file
       uses: timheuer/base64-to-file@v1.1
       with:
-        fileName: 'env.txt'
-        fileDir: '/'
+        fileName: '.env'
         encodedString: ${{ secrets.ENV_VARIABLES }}
     - name: Build
       run: npm run build
