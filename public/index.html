@@ -48,8 +48,10 @@
     <p id="load">Firebase SDK Loading&hellip;</p>
 
     <script>
-      import { initializeApp } from "firebase/app"
-      import { getFirestore, doc, getDoc } from "firebase/firestore"
+      import { initializeApp } from "firebase/app";
+      import { getFirestore, doc, getDoc } from "firebase/firestore";
+
+      
       const firebaseApp = initializeApp({
         apiKey: process.env.apiKey,
         authDomain: process.env.authDomain,
