@@ -88,7 +88,7 @@
       let button = document.getElementById("increment");
 
       button.addEventListener("click", function () {
-        console.log('Coucou')
+        console.log(this)
         this.$fire.firestore
       .collection('increment')
       .doc('p2FIC2VjhWcjh8QKbdu9')
