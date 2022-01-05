@@ -43,6 +43,7 @@
       <h2>Salut je viens d'une nouvelle release</h2>
       <h1>Allez on refait, avec les pull request, et non enfait les releases !</h1>
       <p>Tu es en train de lire ça puisque tout fonctionne.</p>
+      <a id="increment">+ 1</a>
     </div>
     <p id="load">Firebase SDK Loading&hellip;</p>
 
@@ -83,6 +84,13 @@
           loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
         }
       });
+
+      let button = document.getElementById("increment");
+
+      button.addEventListener("click"), function () {
+        console.log('Coucou')
+      }
+
     </script>
   </body>
 </html>
