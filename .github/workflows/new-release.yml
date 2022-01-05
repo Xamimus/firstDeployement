@@ -15,12 +15,11 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - run: ls
     - run: curl -sL https://firebase.tools | bash
+    - run: cd firstDeployement
     - name: Deploy to Firebase Hosting
       uses: w9jds/firebase-action@master
       with:
         args: deploy --only hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        CI: true
