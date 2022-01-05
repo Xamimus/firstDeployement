@@ -32,11 +32,30 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/firebase',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/firebase',
+    '@nuxtjs/dotenv',
   ],
+
+  firebase: {
+    config: {
+      apiKey: process.env.apiKey,
+      authDomain: process.env.authDomain,
+      projectId: process.env.projectId,
+      storageBucket: process.env.storageBucket,
+      messagingSenderId: process.env.messagingSenderId,
+      appId: process.env.appId,
+      databaseUrl: process.env.databaseUrl
+    },
+    services: {
+      firestore: true // Just as example. Can be any other service.
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
