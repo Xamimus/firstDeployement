@@ -23,6 +23,13 @@ jobs:
         cache: 'npm'
     - name: Npm install
       run: npm install
+    - name: Run Workflow
+      id: write_file
+      uses: timheuer/base64-to-file@v1.1
+      with:
+        fileName: 'env.txt'
+        fileDir: '/'
+        encodedString: ${{ secrets.ENV_VARIABLES }}
     - name: Build
       run: npm run build
     - name: Archive Production Artifact
