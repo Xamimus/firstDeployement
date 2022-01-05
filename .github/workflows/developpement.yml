@@ -15,7 +15,6 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - name: Install dependencies
     - run: yarn run build
     - run: yarn run test
     - run: echo "Tested successfully !"
