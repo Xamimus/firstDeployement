@@ -87,9 +87,21 @@
 
       let button = document.getElementById("increment");
 
-      button.addEventListener("click"), function () {
+      button.addEventListener("click", function () {
         console.log('Coucou')
-      }
+        this.$fire.firestore
+      .collection('increment')
+      .doc('p2FIC2VjhWcjh8QKbdu9')
+      .get()
+      .then((e) => {
+        let data = e.data()
+
+        for(let object of Object.entries(data)){
+          /* this.questions.push(object) */
+          console.log(object)
+        }
+      })
+      });
 
     </script>
   </body>
