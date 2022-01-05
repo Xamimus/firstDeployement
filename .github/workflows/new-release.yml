@@ -29,6 +29,8 @@ jobs:
       with:
         fileName: '.env'
         encodedString: ${{ secrets.ENV_VARIABLES }}
+    - name: Move env file
+      run: mv ${{steps.write_file.outputs.filePath}} ./
     - name: Build
       run: npm run build
     - name: Archive Production Artifact

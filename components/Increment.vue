@@ -13,7 +13,6 @@ export default {
       }
   },
   mounted(){
-    console.log('mounted');
       this.$fire.firestore
       .collection('increment')
       .doc('p2FIC2VjhWcjh8QKbdu9')
