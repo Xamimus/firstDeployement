@@ -16,7 +16,6 @@ jobs:
 
     steps:
     - name: Install dependencies
-    run: yarn
     - run: yarn run build
     - run: yarn run test
     - run: echo "Tested successfully !"
