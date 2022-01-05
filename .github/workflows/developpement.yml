@@ -15,5 +15,4 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - run: yarn run test
     - run: echo "Tested successfully !"
