@@ -8,7 +8,7 @@
               <h5>Clique-moi !</h5>
             </button>
             <h5>
-              <strong>J'en suis déjà à {{ count }}...</strong>
+              <strong id="count">{{ count }}</strong>
             </h5>
           </div>
           <div class="mt-3 mx-auto">
@@ -82,4 +82,7 @@ export default {
 </script>
 
 <style scoped>
+    #count{
+        font-size: 25;
+    }
 </style>
