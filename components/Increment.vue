@@ -21,6 +21,18 @@ export default {
         let data = e.data();
         this.count = data.count;
       });
+
+      let collection = this.$fire.firestore.collection('increment');
+
+      try{
+          collection.onSnapshot((data) => {
+              data.forEach(d => {
+                    this.count = d.data().count;
+              })
+          })
+      } catch (e) {
+          console.error(e)
+      }
   },
   methods: {
       increment(){
