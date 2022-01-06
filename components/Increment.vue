@@ -36,6 +36,14 @@
         </div>
       </div>
     </div>
+    <div class="container login-container">
+        <div v-if="!logged">
+            <button class="btn btn-outline-success" @click="toggleLogin">Connexion</button>
+        </div>
+				<div v-if="logged">
+            <button class="btn btn-outline-danger" @click="toggleLogin">Déconnexion</button>
+        </div>
+    </div>
   </div>
 </template>
 
@@ -44,6 +52,7 @@ export default {
   data() {
     return {
       count: 0,
+			logged: false,
     };
   },
   mounted() {
@@ -67,16 +76,47 @@ export default {
       } catch (e) {
           console.error(e)
       }
+
+      this.$fireModule.auth().onAuthStateChanged((user) => {
+			if (user) {
+					console.log('Toggle Login')
+					var uid = user.uid;
+					this.logged = true;
+			} else {
+					console.log('Logging out')
+					this.logged = false;
+			}
+			});
   },
   methods: {
     increment() {
-      this.count++;
+        if(!this.logged) {
+						alert("Merci de vous connecter pour pouvoir liker.")
+            return;
+        };
+
+      this.count ++;
 
       this.$fire.firestore
         .collection("increment")
         .doc("p2FIC2VjhWcjh8QKbdu9")
         .set({ count: this.count });
     },
+    toggleLogin() {
+        if(!this.logged){
+					this.$fireModule.auth().signInAnonymously().then(() =>
+						console.log('Logged')
+					).catch((error) => {
+						console.error(error)
+						})
+				} else {
+					this.$fireModule.auth().signOut().then(() => {
+						alert("Vous avez bien été déconnecté.")
+					}).catch((error) => {
+						console.error(error)
+						})
+				}
+    }
   },
 };
 </script>
@@ -85,4 +125,10 @@ export default {
     #count{
         font-size: 25;
     }
+		.login-container{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 20px;
+		}
 </style>

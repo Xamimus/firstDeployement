@@ -53,7 +53,8 @@ export default {
       databaseUrl: process.env.databaseUrl
     },
     services: {
-      firestore: true // Just as example. Can be any other service.
+      firestore: true,
+      auth: true
     },
   },
 
