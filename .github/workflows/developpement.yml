@@ -1,4 +1,4 @@
-name: Developpement jobs
+name: push_developpement
 
 on:
   push:

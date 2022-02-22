@@ -23,13 +23,13 @@ jobs:
         cache: 'npm'
     - name: Npm install
       run: npm install
-    - name: Run Workflow
+    - name: Write env
       id: write_file
       uses: timheuer/base64-to-file@v1.1
       with:
         fileName: '.env'
         encodedString: ${{ secrets.ENV_VARIABLES }}
-    - name: Move env file
+    - name: Move env
       run: mv ${{steps.write_file.outputs.filePath}} ./
     - name: Build
       run: npm run build
@@ -43,16 +43,11 @@ jobs:
       uses: actions/download-artifact@main
       with:
         name: dist
-        path: dist
-    - name: Deploy to Firebase Hosting
-      uses: w9jds/firebase-action@master
-      with:
-        args: deploy --only hosting
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        path: 
     - name: Deploy to Firebase Firestore Rules
       uses: w9jds/firebase-action@master
       with:
-        args: deploy --only firestore:rules
+        args: deploy --only firestore:rules, hosting
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+    
