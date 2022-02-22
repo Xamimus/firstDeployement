@@ -79,11 +79,11 @@ export default {
 
       this.$fireModule.auth().onAuthStateChanged((user) => {
 			if (user) {
-					console.log('Toggle Login')
+					console.log('Log in')
 					var uid = user.uid;
 					this.logged = true;
 			} else {
-					console.log('Logging out')
+					console.log('Log out')
 					this.logged = false;
 			}
 			});
